@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TO DO LIST</title>
+    </head>
+    <body>
+     <div id="start">
+        <div id="one">
+            <h1>TO DO LIST</h1>
+        </div>
+        <div>
+            <input id="input" type="text" required placeholder="Enter task here.....">
+            <button onclick="add()">ADD</button>
+            <ul id="result"></ul>
+        </div>
+        <div>
+            <p id="count"> Total task = 0</p>
+        </div>
+     </div>
+     <style>
+        body{
+        display:flex;
+        justify-content:center;
+}
+        #start{
+           width:300px;
+           border:2px solid black;
+           padding:20px;
+           margin-top:250px;
+            
+        }
+        h1{
+            background-color: aqua;
+        }
+     </style>
+     <script>
+         let res=document.getElementById("result");
+         let count=0;
+        function add(){
+          let x=document.getElementById("input").value;//java
+          let li=document.createElement("li");
+          let btn=document.createElement("button");
+          if(x===""){
+            alert("Please fill the required field");
+            return;
+          }
+          li.textContent=x;
+          count++;
+          btn.textContent="❌";
+          btn.onclick=function(){
+            li.remove();
+            count--;
+            document.getElementById("count").textContent="Total task = "+count;
+          }
+         res.appendChild(li);
+         li.appendChild(btn);
+         document.getElementById("input").value= "";
+         document.getElementById("count").textContent="Total task = "+count;
+        }
+     </script>
+    </body>
+</html>
