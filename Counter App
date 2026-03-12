@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Counter App
+        </title>
+    </head>
+    <body>
+        <div id="start">
+            <div id="counter">
+        <h1>Counter App</h1>
+        </div>
+        <h1 id="count"></h1>
+        <button onclick="increment()" id="in">Increment</button>
+        <button onclick="decrement()" id="de">Decrement</button><br><br>
+        <button onclick="reset()" id="res">Reset</button>
+        </div>
+        <style>
+            #start{
+                width: 300px;
+                border:2px solid black;
+                padding:50px ;
+                margin-left: 500px;
+                margin-top: 200px;
+                text-align:center;
+                background-color: lightskyblue;
+            }
+            #in{
+                background-color: green;
+                color:white;
+                padding:5px;
+            }
+            #de{
+                background-color: red;
+                color:white;
+                padding:5px;
+            }
+            #res{
+                background-color: blue;
+                color:white;
+            }
+            #count{
+                font-size: 100px;
+                font-weight: bold;
+
+            }
+        </style>
+        <script>
+            let count=0;
+            let c=document.getElementById("count");
+            function increment(){
+                count++;
+                c.textContent=count;
+            }
+            function decrement(){
+                if(count>0){
+                count--;
+                c.textContent=count;
+            }
+        }
+            function reset(){
+                count=0;
+                c.textContent=count;
+            }
+        </script>
+    </body>
+</html>
