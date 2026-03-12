@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stop Watch</title>
+    </head>
+    <body>
+        <div id="h1">
+            <div id="head"><h1>STOP WATCH</h1></div>
+            <div>
+                <h1 id="res">00:00:00</h1>
+            </div>
+            <div id="btn"></button>
+                <button id="start" onclick="start()">Start</button>
+                <button id="pause" onclick="pause()">Pause</button>
+                <button id="reset" onclick="reset()">Reset</button>
+            </div>
+        </div>
+        <style>
+            #head{
+                background-color:lightblue;
+                color:black
+            }
+            #res{
+                background-color: aqua;
+            }
+            
+            #h1{
+                width: 300px;
+                border: 2px solid black;
+                padding: 20px;
+                margin-left: 600px;
+                margin-top: 250px;
+            }
+            #start{
+                background-color: green;
+                color:white;
+                padding:5px;
+            }
+            #pause{
+                background-color: yellow;
+                color:black;
+                padding:5px;
+            }
+            #reset{
+                background-color: red;
+                color:white;
+                padding:5px;
+            }
+            body{
+                text-align: center;
+            }
+        </style>
+        <script>
+            let timer;
+            let sec=0;
+            let min=0;
+            let hr=0;
+            let res=document.getElementById("res");
+function start(){
+   timer = setInterval(function(){
+        sec++;
+
+        if(sec==60){
+            sec=0;
+            min++;
+        }
+
+        if(min==60){
+            min=0;
+            hr++;
+        }
+
+        res.textContent = hr+" : "+min+" : "+sec;
+
+   },1000);
+}
+
+function pause(){
+    clearInterval(timer);
+}
+
+function reset(){
+    clearInterval(timer);
+    hr=0;
+    min=0;
+    sec=0;
+    res.textContent="00 : 00 : 00";
+}
+        </script>
+    </body>
+</html>
