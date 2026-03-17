@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Typing Speed</title>
+        <style>
+            #one{
+                width:500px;
+                border:2px solid black;
+                text-align:center; 
+                color:white;
+                background-color: blue;
+            }
+            #two{
+                background-color: aliceblue;
+                margin-inline: 30px;
+                font-size: 20px;
+                padding-top:3px;
+                border-radius: 10px;
+                font-weight: bold;
+                color:black;
+            }
+            body{
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                height:100vh;
+            }
+            #ans{
+                font-size: 30px;
+            }
+            #three{
+                padding-bottom: 20px;
+                font-size: 30px;
+            }
+            .btn{
+                background-color: blue;
+                color:white;
+                padding: 08px 25px 08px 25px; 
+                font-size: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="one">
+            <h1>Typing Speed</h1>
+            <div id="two">
+                <h4>Type your sentence:</h4>
+                <div id="three">Typing fast requires regular practice</div>
+                <input id="ans" type="text"><br><br>
+                <button onclick="start()" id="start" class="btn">Start</button>
+                <button onclick="stop()" id="stop" class="btn">Stop</button>
+                <button onclick="reset()" id="reset" class="btn">Reset</button>
+                <button onclick="next()" id="next" class="btn">Next</button>
+                <div id="four">
+                    <p id="time">Time: 0</p>
+                </div>
+            </div>
+        </div>
+        <script>
+            let timer;
+            let s=0;
+            let m=0;
+            function start(){
+         timer=setInterval(
+            function(){
+                s++;
+                if(s==60){
+                    s=0;
+                    m++;
+                }
+                if(m==60){
+                    m=0;
+                }
+                document.getElementById("time").textContent=m+" : "+s;
+            },1000
+         ) };  
+         function stop(){
+            clearInterval(timer);
+         } 
+         function reset(){
+            //   document.getElementById("ans").value="";
+            clearInterval(timer);
+            m=0;
+            s=0;
+            document.getElementById("time").textContent="Time: 0";
+              document.getElementById("ans").value="";
+         }
+         let sen=["The quick brown fox jumps over the lazy dog",
+                       "Practice makes a person perfect",
+                       "JavaScript is used for web development",
+                        "Typing fast requires regular practice"];
+                        let i=0;
+        function next(){
+            document.getElementById("three").textContent=sen[i];
+            i++;
+            if(i==sen.length){
+                i=0;
+            }
+        }
+        </script>
+    </body>
+</html>
